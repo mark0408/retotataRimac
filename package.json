@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-restapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/handler.js",
+  "scripts": {
+    "start": "serverless offline"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.4",
+    "serverless-offline": "^6.5.0"
+  },
+  "dependencies": {
+    "uuid": "^3.3.2",
+    "aws-sdk": "^2.725.0"
+  }
+}
