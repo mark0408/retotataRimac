@@ -1,0 +1,40 @@
+
+documentation:
+  version: '1'
+  title: 'My API'
+  description: 'This is my API'
+  models: 
+    - name: "ErrorResponse"
+      description: "This is an error"
+      contentType: "application/json"
+      schema: ${file(src/planeta/model/errorResponse.json)}
+    - name: "CrearPlanetaRequest"
+      description: "POST Document request model (external reference example)"
+      contentType: "application/json"
+      schema: ${file(src/planeta/model/crearPlanetaRequest.json)}
+    - name: "CrearPlanetaResponse"
+      description: "POST Document response model (external reference example)"
+      contentType: "application/json"
+      schema: ${file(src/planeta/model/crearPlanetaResponse.json)}
+    
+
+endpoints:
+  crearPlaneta:
+    summary: "Create Planet"
+    description: "Creates a Planet and then sends a generated password email"
+    requestBody:
+      description: "A planet information object"
+    requestModels:
+      application/json: "CrearPlanetaRequest"
+    methodResponses:
+      - statusCode: 200
+        responseBody:
+          description: "A planet object along with generated API Keys"
+        responseModels:
+          application/json: "crearPlanetaResponse"
+      - statusCode: 500
+        responseBody:
+          description: "An error message when creating a new user"
+        responseModels:
+          application/json: "ErrorResponse"
+ 

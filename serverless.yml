@@ -1,24 +1,31 @@
 service: aws-api-starwars
 
+custom:
+  documentation: ${file(serverless.doc.yml):documentation}
+  dynamodb:
+    stages:
+      - dev
+    start:
+      port: 8000
+      inMemory: true
+      heapInitial: 200m
+      heapMax: 1g
+      migrate: true
+      seed: true
+      convertEmptyValues: true
+
 provider:
   name: aws
-  runtime: nodejs10.x
-  region: eu-west-2
+  runtime: nodejs12.x
+  region: us-east-1
   environment:
     PLANETA_DYNAMODB_TABLE: PlanetaDynamoDbTable
-iamRoleStatements:
-  - Effect: Allow
-    Action:
-      - dynamodb:Query
-      - dynamodb:Scan
-      - dynamodb:GetItem
-      - dynamodb:PutItem
-      - dynamodb:UpdateItem
-      - dynamodb:DeleteItem
-    Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.PLANETA_DYNAMODB_TABLE}"
+
 
 plugins:
+  - serverless-dynamodb-local
   - serverless-offline
+  - serverless-openapi-documentation
 
 functions:
   crearPlaneta:
@@ -27,6 +34,7 @@ functions:
       - http:
           path: crearPlaneta
           method: post
+          documentation: ${file(serverless.doc.yml):endpoints.crearPlaneta}
   obtenerPlanetas:
     handler: src/handler.obtenerPlanetas
     events:

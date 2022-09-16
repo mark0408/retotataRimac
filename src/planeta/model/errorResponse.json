@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "statusCode": {
+        "type": "integer",
+        "description": "500"
+      },
+      "body": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Ocurrio un problema con el lambda"
+          }
+        },
+        "required": [
+          "message"
+        ]
+      }
+    },
+    "required": [
+      "statusCode",
+      "body"
+    ]
+  }

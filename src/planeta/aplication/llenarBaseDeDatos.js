@@ -1,7 +1,18 @@
 const { DynamoDB } = require('aws-sdk');
 const modelo = require('./../model/planeta');
 const uuidv1 = require('uuid/v1');
-const dynamoDb = new DynamoDB.DocumentClient();
+const fetch = (url) => import('node-fetch').then(({default: fetch}) => fetch(url));
+
+const dynamoDb = new DynamoDB.DocumentClient(
+  {
+    region: 'us-east-1',
+    apiVersion: 'latest',
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY,
+      secretAccessKey: process.env.AWS_SECRET_KEY
+    }
+  }
+);
 
 async function obtenerPlanetas (event) {
 
@@ -36,7 +47,8 @@ async function obtenerPlanetas (event) {
       return {message: 'Registro exitoso'};
     })
     .catch(error =>{
-      return {message: 'erro en dynamoDb'}
+      console.error(error);
+      return {message: 'error en dynamoDb'}
     }) 
   }
 

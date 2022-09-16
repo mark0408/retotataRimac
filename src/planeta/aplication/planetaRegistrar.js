@@ -1,11 +1,21 @@
 const { DynamoDB } = require('aws-sdk');
 const uuidv1 = require('uuid/v1');
+require('dotenv').config();
 
-const dynamoDb = new DynamoDB.DocumentClient()
+const dynamoDb = new DynamoDB.DocumentClient(
+  {
+    region: 'us-east-1',
+    apiVersion: 'latest',
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY,
+      secretAccessKey: process.env.AWS_SECRET_KEY
+    }
+  }
+);
 
 
   async function planetaRegistrar(event) {
-  const data = JSON.parse(event.body)
+  const data = event.body
 
   let planeta = {
     id: uuidv1(),
@@ -36,7 +46,7 @@ const dynamoDb = new DynamoDB.DocumentClient()
       return {message: 'Registro exitoso'};
     })
     .catch(error =>{
-      return {message: 'erro en dynamoDb'}
+      return {message: 'error en dynamoDb'}
     })
 }
 

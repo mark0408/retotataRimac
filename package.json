@@ -4,18 +4,27 @@
   "description": "",
   "main": "src/handler.js",
   "scripts": {
-    "start": "serverless offline"
+    "start": "serverless offline",
+    "test": "jest --verbose"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jest": "^29.0.3",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.4",
-    "serverless-offline": "^6.5.0"
+    "serverless-dynamodb-local": "^0.2.40",
+    "serverless-offline": "^6.5.0",
+    "serverless-openapi-documentation": "^0.4.0"
   },
   "dependencies": {
-    "uuid": "^3.3.2",
-    "aws-sdk": "^2.725.0"
+    "aws-sdk": "^2.725.0",
+    "dotenv": "^16.0.2",
+    "node-fetch": "^3.2.10",
+    "uuid": "^3.3.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

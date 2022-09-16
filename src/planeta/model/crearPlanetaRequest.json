@@ -1,0 +1,167 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://example.com/example.json",
+    "title": "Crear Planeta Request",
+    "type": "object",
+    "required": [
+        "nombre",
+        "periodo_rotacion",
+        "periodo_orbital",
+        "diametro",
+        "clima",
+        "gravedad",
+        "terreno",
+        "superficie_agua",
+        "poblacion",
+        "residentes",
+        "filmes",
+        "creado",
+        "editado",
+        "url"
+    ],
+    "properties": {
+        "nombre": {
+            "title": "The nombre Schema",
+            "type": "string",
+            "examples": [
+                "Alderaan"
+            ]
+        },
+        "periodo_rotacion": {
+            "title": "The periodo_rotacion Schema",
+            "type": "string",
+            "examples": [
+                "24"
+            ]
+        },
+        "periodo_orbital": {
+            "title": "The periodo_orbital Schema",
+            "type": "string",
+            "examples": [
+                "364"
+            ]
+        },
+        "diametro": {
+            "title": "The diametro Schema",
+            "type": "string",
+            "examples": [
+                "12500"
+            ]
+        },
+        "clima": {
+            "title": "The clima Schema",
+            "type": "string",
+            "examples": [
+                "temperate"
+            ]
+        },
+        "gravedad": {
+            "title": "The gravedad Schema",
+            "type": "string",
+            "examples": [
+                "1 standard"
+            ]
+        },
+        "terreno": {
+            "title": "The terreno Schema",
+            "type": "string",
+            "examples": [
+                "grasslands, mountains"
+            ]
+        },
+        "superficie_agua": {
+            "title": "The superficie_agua Schema",
+            "type": "string",
+            "examples": [
+                "40"
+            ]
+        },
+        "poblacion": {
+            "title": "The poblacion Schema",
+            "type": "string",
+            "examples": [
+                "2000000000"
+            ]
+        },
+        "residentes": {
+            "title": "The residentes Schema",
+            "type": "array",
+            "items": {
+                "title": "A Schema",
+                "type": "string",
+                "examples": [
+                    "https://swapi.py4e.com/api/people/5/",
+                    "https://swapi.py4e.com/api/people/68/",
+                    "https://swapi.py4e.com/api/people/81/"
+                ]
+            },
+            "examples": [
+                ["https://swapi.py4e.com/api/people/5/",
+                    "https://swapi.py4e.com/api/people/68/",
+                    "https://swapi.py4e.com/api/people/81/"
+                ]
+            ]
+        },
+        "filmes": {
+            "title": "The filmes Schema",
+            "type": "array",
+            "items": {
+                "title": "A Schema",
+                "type": "string",
+                "examples": [
+                    "https://swapi.py4e.com/api/films/1/",
+                    "https://swapi.py4e.com/api/films/6/"
+                ]
+            },
+            "examples": [
+                ["https://swapi.py4e.com/api/films/1/",
+                    "https://swapi.py4e.com/api/films/6/"
+                ]
+            ]
+        },
+        "creado": {
+            "title": "The creado Schema",
+            "type": "string",
+            "examples": [
+                "2014-12-10T11:35:48.479000Z"
+            ]
+        },
+        "editado": {
+            "title": "The editado Schema",
+            "type": "string",
+            "examples": [
+                "2014-12-20T20:58:18.420000Z"
+            ]
+        },
+        "url": {
+            "title": "The url Schema",
+            "type": "string",
+            "examples": [
+                "https://swapi.py4e.com/api/planets/2/"
+            ]
+        }
+    },
+    "examples": [{
+        "nombre": "Alderaan",
+        "periodo_rotacion": "24",
+        "periodo_orbital": "364",
+        "diametro": "12500",
+        "clima": "temperate",
+        "gravedad": "1 standard",
+        "terreno": "grasslands, mountains",
+        "superficie_agua": "40",
+        "poblacion": "2000000000",
+        "residentes": [
+            "https://swapi.py4e.com/api/people/5/",
+            "https://swapi.py4e.com/api/people/68/",
+            "https://swapi.py4e.com/api/people/81/"
+        ],
+        "filmes": [
+            "https://swapi.py4e.com/api/films/1/",
+            "https://swapi.py4e.com/api/films/6/"
+        ],
+        "creado": "2014-12-10T11:35:48.479000Z",
+        "editado": "2014-12-20T20:58:18.420000Z",
+        "url": "https://swapi.py4e.com/api/planets/2/"
+    }]
+}

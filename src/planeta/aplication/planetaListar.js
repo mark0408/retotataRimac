@@ -1,5 +1,15 @@
 const { DynamoDB } = require('aws-sdk');
-const dynamoDb = new DynamoDB.DocumentClient();
+require('dotenv').config();
+const dynamoDb = new DynamoDB.DocumentClient(
+  {
+    region: 'us-east-1',
+    apiVersion: 'latest',
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY,
+      secretAccessKey: process.env.AWS_SECRET_KEY
+    }
+  }
+);
 
 
 async function obtenerPlanetas (event) {
@@ -13,7 +23,7 @@ async function obtenerPlanetas (event) {
     })
     .catch(error =>{
       console.error(error);
-      return {message: 'erro en dynamoDb'}
+      return {message: 'error en dynamoDb'}
     })
   
 }
